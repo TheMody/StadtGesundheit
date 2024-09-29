@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="FashionFail: Addressing Failure Cases in Fashion Object Detection and Segmentation">
+  <meta name="keywords" content="FashionFail, Facere, Facere+">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FashionFail: Addressing Failure Cases in Fashion Object Detection and Segmentation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">FashionFail: Addressing Failure Cases in Fashion Object Detection and Segmentation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://rizavelioglu.github.io/">Riza Velioglu</a>,</span>
+            <span class="author-block">
+              <a href="https://robinchan.de/">Robin Chan</a>,</span>
+            <span class="author-block">
+              <a href="https://www.techfak.uni-bielefeld.de/~bhammer/">Barbara Hammer</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Machine Learning Group, CITEC, Bielefeld University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2404.08582.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2404.08582"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video (coming soon)</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/rizavelioglu/fashionfail"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/rizavelioglu/fashionfail"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <img alt="Spaces" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="25"
+                       style="margin-left: -10px; margin-right: 5px">
+                  <span>Data</span>
+                  </a>
+              </span>
+              <!-- Model Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/rizavelioglu/fashionfail"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <img alt="Spaces" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="25"
+                       style="margin-left: -10px; margin-right: 5px">
+                  <span>Model</span>
+                  </a>
+              </span>
+              <!-- HF Spaces Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/rizavelioglu/fashion-segmentation"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <img alt="Spaces" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="25"
+                       style="margin-left: -10px; margin-right: 5px">
+                  <span>Demo</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="teaser-carousel" class="carousel teaser-carousel">
+        <div class="item"><img src="static/images/pred-adi_10184_4.jpg" alt="Bounding box predictions on a shoe product image."/></div>
+        <div class="item"><img src="static/images/pred-adi_8934_3.jpg" alt="Bounding box predictions on a bag product image."/></div>
+        <div class="item"><img src="static/images/pred-adi_2435_1.jpg" alt="Bounding box predictions on a socks product image."/></div>
+        <div class="item"><img src="static/images/pred-adi_5663_3.jpg" alt="Bounding box predictions on a watch product image."/></div>
+      </div>
+      <!-- Add a single caption covering all the images -->
+      <h4 class="has-text-centered">
+        Prediction failures of <span class="blue-text">Attribute-Mask R-CNN<sub>SpineNet-143</sub></span> and
+        <span class="purple-text">Fashionformer<sub>Swin-base</sub></span> on samples from the <i>FashionFail-test</i> set.
+      </h4>
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Abstract & Video -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In the realm of fashion object detection and segmentation for online shopping images, existing
+            state-of-the-art fashion parsing models encounter limitations, particularly when exposed to non-model-worn
+            apparel and close-up shots. To address these failures, we introduce <i>FashionFail;</i> a new fashion
+            dataset with e-commerce images for object detection and segmentation. The dataset is efficiently curated
+            using our novel annotation tool that leverages recent foundation models.
+          </p>
+          <p>
+            The primary objective of FashionFail is to serve as a test bed for evaluating the robustness of models.
+            Our analysis reveals the shortcomings of leading models, such as Attribute-Mask R-CNN and Fashionformer.
+            Additionally, we propose a baseline approach using naive data augmentation to mitigate common failure cases
+            and improve model robustness. Through this work, we aim to inspire and support further research in fashion
+            item detection and segmentation for industrial applications.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-three-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/videoID?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+<!-- End Abstract & Video -->
+
+
+<!-- Scale & Context -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4 has-text-centered">Scale</h2>
+      <p>
+        While Attribute-Mask R-CNN claimed that it <a href="https://arxiv.org/pdf/2004.12276#page=19"><i>"works
+      reasonably well if the apparel item is worn by a model"</i></a>, pointing out the lack of context as the sole
+      reason for these failures, our findings indicate that the issue is not solely due to the absence of context
+      but also the scale of the items.
+        In the original sizes of the images, <span class="blue-text">Attribute-Mask R-CNN<sub>SpineNet-143</sub></span>
+        fails to detect displayed objects. However, simply rescaling images and/or zooming out (padding with white
+        pixels) leads to correct detections:
+      </p>
+      <div class="carousel scale-carousel">
+        <div class="item"><img src="static/images/scale-zarashoe.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/scale-glasses.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/scale-adishoe.jpg" alt=""/></div>
+      </div>
+      <br>
+      <h2 class="title is-4 has-text-centered">Context</h2>
+      <p>
+        We demonstrate that scale alone may not be sufficient for detection in all cases and that both context and scale
+        are required in some cases. For example, in the original size of <a href="https://www.adidas.de/en/code-five-watch/IR2520.html">an image</a>,
+        a 'watch' is detected as a 'shoe' with <b>94%</b> confidence. Resizing the image already fixes the issue: the
+        previously detected shoe becomes a watch with <b>100%</b> confidence. However, removing the pixels not belonging to
+        the watch leads to non-detection. Downsizing the image further does not resolve the issue:
+      </p>
+      <br>
+      <img src="static/images/context-watch.jpg" alt="MY ALT TEXT"/>
+    </div>
+  </div>
+</section>
+<!-- Scale & Context -->
+
+
+<!-- Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+      <p>
+        By fine-tuning a pre-trained Mask R-CNN model on the <i>Fashionpedia-train</i> set using
+        intelligent data augmentation techniques, we are able to address many of the failure cases. Furthermore,
+        we improve the model performance (both bbox and mask mAP) on the <i>Fashionfail-test</i> dataset while
+        matching the model performance of other baselines on <i>Fashiopedia-val</i>.
+      </p>
+    <br>
+      <div class="carousel teaser-carousel">
+        <div class="item"><img src="static/images/preds-glasses.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/preds-shoe_1.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/preds-shoe_2.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/preds-shoe_3.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/preds-bag_1.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/preds-bag_2.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/preds-jacket.jpg" alt=""/></div>
+        <div class="item"><img src="static/images/preds-shirt.jpg" alt=""/></div>
+      </div>
+    <p>
+      <br>
+      As a by-product of our method, we can also solve the multiple instance detection problem. Both baselines mostly
+      provide predictions for a single person, sometimes for the one in the foreground and sometimes for the one in the
+      background. Occasionally, they provide detections for both for some classes, while other times they merge boxes
+      unreasonably. This happens quite randomly. On the other hand, our model successfully provides accurate detections
+      thanks to our custom data augmentation method.
+    </p>
+    <br>
+    <div class="carousel teaser-carousel">
+      <div class="item"><img src="static/images/preds-multi0.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi1.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi2.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi3.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi4.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi5.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi7.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi8.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi9.jpg" alt=""/></div>
+      <div class="item"><img src="static/images/preds-multi10.jpg" alt=""/></div>
+    </div>
+  </div>
+</section>
+<!-- Results -->
+
+
+<!-- BibTeX Citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{velioglu2024fashionfail,
+  author    = {Velioglu, Riza and Chan, Robin and Hammer, Barbara},
+  title     = {FashionFail: Addressing Failure Cases in Fashion Object Detection and Segmentation},
+  journal   = {IJCNN},
+  eprint    = {2404.08582},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+<!-- BibTeX Citation -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://rizavelioglu.github.io/">
+        <i class="fas fa-home"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/rizavelioglu">
+        <i class="fab fa-github"></i>
+      </a>
+      <a class="icon-link" href="https://twitter.com/rizavelioglu">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a class="icon-link" href="https://linkedin.com/in/veliogluriza">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p style="font-size:12px;">
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a> and is adopted from <a
+              href="https://nerfies.github.io/">Nerfies</a>.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
