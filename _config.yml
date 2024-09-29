@@ -18,12 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: FashionFail
+title: StadtGesundheit
 description: >- # this means to ignore newlines until "baseurl:"
-  The official repository of "FashionFail: Addressing Failure Cases in Fashion Object Detection and Segmentation".
+  The official repository of "StadtGesundheit".
 baseurl: "/fashionfail" # the subpath of your site, e.g. /blog
-url: "https://rizavelioglu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-google_analytics : G-N5PKY1J45Y
+url: "https://StadtGesundheit.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+#google_analytics : G-N5PKY1J45Y
 
 # Build settings
 theme: minima
